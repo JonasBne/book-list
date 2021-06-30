@@ -1,9 +1,7 @@
 ## Description
 
-I developed a booklist app to keep track of reading progress with HTML, CSS (Materialize & Sass) and plain JavaScript.
-
-This is how it works:
-[TO BE ADDED]
+A book list application to keep track of your reading progress. The application is developed with HTML, CSS (Materialize & Sass) and plain JavaScript.
+All interactions happens in the user interface, there is no database connected.
 
 
 ## Installation
