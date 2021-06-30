@@ -10,11 +10,10 @@
 <body class="green lighten-5">
 
 <div class="container">
-    <h4>My Books</h4>
-    <div class="divider"></div>
+    <h4>Add book</h4>
     <div class="section">
         <div class="row">
-            <form class="col s12">
+            <form id="book-form" class="col s12">
                 <div class="row input-field">
                     <div class="col s6">
                         <label for="first-name">First Name
@@ -41,25 +40,32 @@
                         </label>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col s3">
+                        <input id="submit-btn" type="submit" class="btn" value="Add book">
+                    </div>
+                </div>
             </form>
         </div>
     </div>
 </div>
 
 <div class="container">
-    <table>
-        <thead>
+    <h4>My books</h4>
+    <div class="section">
+        <table>
+            <thead>
             <tr>
-                <th>Title</th>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th>Title</th>
                 <th>Rating</th>
             </tr>
-        </thead>
-        <tbody id="book-table">
-
-        </tbody>
-    </table>
+            </thead>
+            <tbody id="book-table">
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
