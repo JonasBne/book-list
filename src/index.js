@@ -12,12 +12,14 @@ const titleInput = document.getElementById("title");
 const ratingInput = document.getElementById("rating");
 const bookList = document.getElementById("book-list");
 
-// Book constructor
-function Book(firstName, lastName, title, rating) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.title = title;
-    this.rating = rating;
+// Book class
+class Book {
+    constructor(firstName, lastName, title, rating) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.title = title;
+        this.rating = rating;
+    }
 }
 
 // Event listener form
