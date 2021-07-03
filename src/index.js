@@ -10,7 +10,7 @@ const firstNameInput = document.getElementById("first-name");
 const lastNameInput = document.getElementById("last-name");
 const titleInput = document.getElementById("title");
 const ratingInput = document.getElementById("rating");
-const bookTable = document.getElementById("book-table");
+const bookList = document.getElementById("book-list");
 
 // Book constructor
 function Book(firstName, lastName, title, rating) {
@@ -20,7 +20,7 @@ function Book(firstName, lastName, title, rating) {
     this.rating = rating;
 }
 
-// Event listeners
+// Event listener form
 form.addEventListener("submit", e => {
     // Get form values
     const firstName = firstNameInput.value;
@@ -33,18 +33,27 @@ form.addEventListener("submit", e => {
 
     // Form validation
     if (firstName === "" || lastName === "" || title === "" || rating === "") {
+        // Disable page reloading
         e.preventDefault();
         // Show alert
         showMessage("Please fill in all fields!", "warning");
     } else {
+        // Disable page reloading
+        e.preventDefault();
         // Add book to list, pass in book object
         addBookToList(book);
         // Show succes message
         showMessage("Book successfully added!", "succes");
     }
+})
 
-    // Disable page reloading
-    e.preventDefault();
+// Event listener delete
+    // Because the icon is created dynamically we have to use event delegation
+bookList.addEventListener("click", (e) => {
+    if (e.target.classList.contains("material-icons") && confirm("Are you sure?")) {
+        // Get the closest table row and remove from DOM
+        e.target.closest("tr").remove();
+    }
 })
 
 
@@ -52,7 +61,7 @@ form.addEventListener("submit", e => {
 function addBookToList(book) {
     // Create table row and append to table
     const row = document.createElement("tr");
-    bookTable.appendChild(row);
+    bookList.appendChild(row);
 
     // Create table data and append to table row
         // Get book object values
