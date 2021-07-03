@@ -1,3 +1,11 @@
 body {
   font-family: 'Roboto Mono', monospace;
 }
+
+i {
+  margin-top: 10px;
+
+  &:hover {
+    color: red;
+  }
+}

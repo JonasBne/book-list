@@ -59,12 +59,21 @@ function addBookToList(book) {
             row.appendChild(td);
         })
 
+    // Create icon
+    const icon = document.createElement("i");
+        // Add class
+        icon.className = "small material-icons";
+        // Add HTML
+        icon.innerHTML = "delete_forever"
+        // Append
+        row.appendChild(icon);
+
     // Erase input fields
-    eraseInputFields();
+    cleanUpInputFields();
 }
 
-// Erase input fields
-function eraseInputFields() {
+// Clean up input fields
+function cleanUpInputFields() {
     // Replace values
     firstNameInput.value = "";
     lastNameInput.value = "";
