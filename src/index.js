@@ -31,12 +31,22 @@ form.addEventListener("submit", e => {
     // For each book, create new object instance and pass the form values
     const book = new Book(firstName, lastName, title, rating);
 
-    // Add book to list, pass in book object
-    addBookToList(book);
+    // Form validation
+    if (firstName === "" || lastName === "" || title === "" || rating === "") {
+        e.preventDefault();
+        // Show alert
+        showMessage("Please fill in all fields!", "warning");
+    } else {
+        // Add book to list, pass in book object
+        addBookToList(book);
+        // Show succes message
+        showMessage("Book successfully added!", "succes");
+    }
 
     // Disable page reloading
     e.preventDefault();
 })
+
 
 // Add book
 function addBookToList(book) {
@@ -47,7 +57,6 @@ function addBookToList(book) {
     // Create table data and append to table row
         // Get book object values
         const bookValues = Object.values(book)
-        console.log(bookValues)
 
     // Loop over array with values and create table data for each of them
         bookValues.forEach(value => {
@@ -79,4 +88,20 @@ function cleanUpInputFields() {
     lastNameInput.value = "";
     titleInput.value = "";
     ratingInput.value = "";
+}
+
+// Form validation
+function showMessage(msg, className) {
+    // Create element
+    const div = document.createElement("div");
+    // Add class
+    div.className = `${className}`;
+    // Create and append text node
+    div.appendChild(document.createTextNode(msg));
+    // Insert into DOM
+    form.appendChild(div)
+    // Hide message after 3 seconds
+    setTimeout( () => {
+        div.classList.add("hidden")
+    }, 3000)
 }
