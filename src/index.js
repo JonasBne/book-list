@@ -53,6 +53,8 @@ bookList.addEventListener("click", (e) => {
     if (e.target.classList.contains("material-icons") && confirm("Are you sure?")) {
         // Get the closest table row and remove from DOM
         e.target.closest("tr").remove();
+        // Show success message
+        showMessage("Book removed!", "succes");
     }
 })
 
@@ -112,5 +114,5 @@ function showMessage(msg, className) {
     // Hide message after 3 seconds
     setTimeout( () => {
         div.classList.add("hidden")
-    }, 3000)
+    }, 2000)
 }
